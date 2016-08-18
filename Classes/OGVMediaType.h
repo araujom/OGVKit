@@ -19,5 +19,6 @@ typedef NS_ENUM(NSUInteger, OGVCanPlay) {
 @property (readonly) NSArray *codecs;
 
 - (instancetype)initWithString:(NSString *)string;
+- (instancetype)initWithFileName:(NSString *)fileName;
 
 @end

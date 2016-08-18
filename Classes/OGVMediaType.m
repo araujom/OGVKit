@@ -54,4 +54,25 @@ static void split(NSString *str, NSString *separator, NSString **first, NSString
     return [self initWithMajor:major minor:minor codecs:codecs];
 }
 
+- (instancetype)initWithFileName:(NSString *)fileName
+{
+    NSString *mineTypeGess = nil;
+    
+    NSString *fileExtension = [fileName pathExtension];
+    if ([fileExtension isEqualToString:@"webm"]) {
+        mineTypeGess = @"video/webm";
+    }else if ([fileExtension isEqualToString:@"ogg"]){
+        mineTypeGess = @"application/ogg";
+    }else if ([fileExtension isEqualToString:@"ogv"]){
+        mineTypeGess = @"application/ogg";
+    }else if ([fileExtension isEqualToString:@"oga"]){
+        mineTypeGess = @"application/ogg";
+    }else if ([fileExtension isEqualToString:@"ogx"]){
+        mineTypeGess = @"application/ogg";
+    }else if ([fileExtension isEqualToString:@"ogm"]){
+        mineTypeGess = @"application/ogg";
+    }
+    
+    return [self initWithString:mineTypeGess];
+}
 @end

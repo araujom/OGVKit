@@ -531,8 +531,11 @@ static const NSUInteger kOGVInputStreamBufferSizeReading = 1024 * 1024;
             
             switch (self.state) {
                 case OGVInputStreamStateConnecting:
-                    self.mediaType = [[OGVMediaType alloc] initWithString:response.MIMEType];
-
+                    if([[response.URL scheme] isEqualToString:@"file"]){
+                        self.mediaType = [[OGVMediaType alloc] initWithFileName:response.suggestedFilename];
+                    }else{
+                        self.mediaType = [[OGVMediaType alloc] initWithString:response.MIMEType];
+                    }
                     switch (statusCode) {
                         case 200: // 'OK' - non-seekable stream
                             if (contentLength) {
