@@ -30,7 +30,7 @@ static const GLuint rectanglePoints = 6;
 {
     [self setupGLStuff];
     
-    glClearColor(0, 0, 0, 1);
+    glClearColor(1, 1, 1, 1);
     [self debugCheck];
 
     glDepthMask(GL_TRUE); // voodoo from http://stackoverflow.com/questions/5470822/ios-opengl-es-logical-buffer-loads
